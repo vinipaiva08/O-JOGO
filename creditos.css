@@ -1,0 +1,105 @@
+@font-face {
+    font-family: 'Avengeance';
+    src: url('avengeance/AVENGEANCE\ HEROIC\ AVENGER.ttf') format('truetype'); 
+}
+
+body {
+    background-image: url('https://wallpapers.com/images/featured/marvel-avengers-4k-fdklzqr059k6g1gf.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    margin: 0;
+    font-family: sans-serif;
+    overflow: hidden; /* Esconde a barra de rolagem lateral para simular o filme */
+}
+
+/* Container que centraliza os créditos na tela */
+.creditos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6); /* Camada escura para dar foco ao texto */
+}
+
+/* Bloco que vai subir na tela usando animação */
+.creditos-rolagem {
+    text-align: center;
+    animation: rolar 20s linear infinite; /* Altere '20s' para mudar a velocidade */
+    position: relative;
+    top: 100%; /* Começa fora da tela, na parte inferior */
+}
+
+/* Estilo dos textos dos créditos */
+.titulo-creditos {
+    font-family: 'Avengeance', sans-serif;
+    font-size: 80px;
+    color: #ff003c;
+    margin-bottom: 80px;
+    letter-spacing: 3px;
+}
+
+.funcao {
+    font-size: 16px;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 30px 0 5px 0;
+}
+
+.nome {
+    font-family: 'Avengeance', sans-serif;
+    font-size: 40px;
+    color: white;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Bloco final do Jonathon */
+.agradecimento-especial {
+    margin-top: 120px;
+    padding-bottom: 200px; /* Garante espaço para terminar a animação */
+}
+
+.salve-jonathon {
+    font-family: 'Avengeance', sans-serif;
+    font-size: 50px;
+    color: lightblue;
+    text-shadow: 0px 0px 15px rgba(173, 216, 230, 0.8); /* Efeito neon azul */
+    margin: 10px 0 0 0;
+}
+
+/* Botão Voltar */
+.btn-voltar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    color: black;
+    background-color: lightblue;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Avengeance', sans-serif;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 15px rgba(255, 0, 60, 0.4);
+    transition: background 0.3s;
+}
+
+.btn-voltar:hover {
+    background-color: #ff003c;
+    color: white;
+}
+
+/* ANIMAÇÃO CSS: Faz o texto subir do fundo até o topo da tela */
+@keyframes rolar {
+    0% {
+        transform: translateY(40%);
+    }
+    100% {
+        transform: translateY(-110%);
+    }
+}

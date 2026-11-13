@@ -1,0 +1,836 @@
+
+        /* 1. MESMA FONTE DO SEU PROJETO */
+        @font-face {
+            font-family: 'Avengeance';
+            src: url('avengeance/AVENGEANCE\ HEROIC\ AVENGER.ttf') format('truetype'),
+                 url('AVENGEANCE\ HEROIC\ AVENGER.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --red-neon: #ff003c;
+            --blue-neon: #add8e6;
+            --gold-neon: #ffcc00;
+            --dark-bg: rgba(0, 0, 0, 0.82);
+            --panel-bg: rgba(12, 14, 22, 0.9);
+            --font-hero: 'Avengeance', 'Bangers', Impact, sans-serif;
+            --font-ui: 'Rajdhani', Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=1920&auto=format&fit=crop');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            font-family: var(--font-ui);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Máscara escura no estilo do seu opcoes.css / creditos.css */
+        .app-overlay {
+            background: radial-gradient(circle at center, rgba(10, 12, 20, 0.72) 0%, rgba(0, 0, 0, 0.92) 100%);
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            position: relative;
+        }
+
+        /* Botão Voltar idêntico ao padrão do seu projeto */
+        .btn-voltar {
+            position: fixed;
+            top: 18px;
+            left: 20px;
+            z-index: 100;
+            color: black;
+            background-color: var(--blue-neon);
+            padding: 10px 22px;
+            font-size: 16px;
+            font-family: var(--font-hero);
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0px 4px 15px rgba(255, 0, 60, 0.4);
+            transition: all 0.25s ease;
+        }
+
+        .btn-voltar:hover {
+            background-color: var(--red-neon);
+            color: white;
+            transform: scale(1.06);
+        }
+
+        .btn-som {
+            position: fixed;
+            top: 18px;
+            right: 20px;
+            z-index: 100;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.75);
+            border: 2px solid var(--blue-neon);
+            padding: 8px 16px;
+            font-size: 15px;
+            font-family: var(--font-ui);
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-som:hover {
+            border-color: var(--red-neon);
+            background-color: var(--red-neon);
+        }
+
+        .btn-sprite-opcional {
+            position: fixed;
+            top: 18px;
+            right: 150px;
+            z-index: 100;
+            color: var(--gold-neon);
+            background-color: rgba(0, 0, 0, 0.75);
+            border: 2px solid var(--gold-neon);
+            padding: 8px 14px;
+            font-size: 13px;
+            font-family: var(--font-ui);
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-sprite-opcional:hover {
+            background-color: var(--gold-neon);
+            color: #000;
+        }
+
+        /* ================= TELA DE SELEÇÃO DE PERSONAGENS ================= */
+        #select-screen {
+            width: 100%;
+            max-width: 1120px;
+            background: var(--panel-bg);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-left: 5px solid var(--red-neon);
+            border-right: 5px solid var(--blue-neon);
+            border-radius: 10px;
+            padding: 22px 28px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 35px;
+        }
+
+        .header-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 12px;
+            gap: 12px;
+        }
+
+        .titulo-arena {
+            font-family: var(--font-hero);
+            font-size: 46px;
+            margin: 0;
+            color: white;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 0px var(--red-neon);
+        }
+
+        .subtitulo-arena {
+            color: var(--blue-neon);
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* Seletores de Modo e Cenário */
+        .config-partida {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .mode-switch {
+            display: flex;
+            background: rgba(0,0,0,0.6);
+            border-radius: 6px;
+            padding: 4px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .mode-btn {
+            background: transparent;
+            color: #aaa;
+            border: none;
+            padding: 8px 16px;
+            font-family: var(--font-ui);
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .mode-btn.active {
+            background: var(--red-neon);
+            color: white;
+            box-shadow: 0 0 12px rgba(255, 0, 60, 0.5);
+        }
+
+        .stage-select {
+            background: #141824;
+            color: var(--blue-neon);
+            border: 1px solid var(--blue-neon);
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-family: var(--font-ui);
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Painel Versus (P1 vs P2) */
+        .vs-preview-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 16px;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 14px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .fighter-preview-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .fighter-preview-card.p2 {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .preview-canvas-box {
+            width: 96px;
+            height: 96px;
+            background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0.7) 100%);
+            border: 2px solid var(--blue-neon);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .fighter-preview-card.p2 .preview-canvas-box {
+            border-color: var(--red-neon);
+        }
+
+        .fighter-info {
+            flex: 1;
+        }
+
+        .player-tag {
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--blue-neon);
+        }
+
+        .fighter-preview-card.p2 .player-tag {
+            color: var(--red-neon);
+        }
+
+        .fighter-name {
+            font-family: var(--font-hero);
+            font-size: 30px;
+            margin: 2px 0;
+            letter-spacing: 1.5px;
+            color: white;
+        }
+
+        .fighter-special-desc {
+            font-size: 13px;
+            color: #ccc;
+            margin-bottom: 6px;
+        }
+
+        .stats-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            max-width: 220px;
+        }
+
+        .fighter-preview-card.p2 .stats-bars {
+            margin-left: auto;
+        }
+
+        .stat-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #aaa;
+            font-weight: 700;
+        }
+
+        .stat-track {
+            flex: 1;
+            height: 6px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .stat-fill {
+            height: 100%;
+            background: var(--blue-neon);
+            transition: width 0.3s ease;
+        }
+
+        .fighter-preview-card.p2 .stat-fill {
+            background: var(--red-neon);
+        }
+
+        .vs-badge {
+            font-family: var(--font-hero);
+            font-size: 44px;
+            color: var(--gold-neon);
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.8), 3px 3px 0px #000;
+            padding: 0 10px;
+        }
+
+        /* Instrução de quem está escolhendo */
+        .turn-banner {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--gold-neon);
+        }
+
+        /* Grade dos 6 Heróis da Marvel */
+        .roster-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+        }
+
+        .char-slot {
+            background: rgba(20, 24, 36, 0.85);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 10px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .char-slot:hover {
+            transform: translateY(-4px);
+            background: rgba(35, 42, 62, 0.95);
+            border-color: white;
+        }
+
+        .char-slot.selected-p1 {
+            border-color: var(--blue-neon);
+            box-shadow: 0 0 16px rgba(173, 216, 230, 0.65);
+        }
+
+        .char-slot.selected-p2 {
+            border-color: var(--red-neon);
+            box-shadow: 0 0 16px rgba(255, 0, 60, 0.65);
+        }
+
+        .char-slot.selected-both {
+            border-image: linear-gradient(135deg, var(--blue-neon), var(--red-neon)) 1;
+            box-shadow: 0 0 18px rgba(255, 204, 0, 0.65);
+        }
+
+        .slot-badges {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .badge-p {
+            font-family: var(--font-hero);
+            font-size: 13px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            letter-spacing: 1px;
+        }
+
+        .badge-p1 {
+            background: var(--blue-neon);
+            color: #000;
+        }
+
+        .badge-p2 {
+            background: var(--red-neon);
+            color: #fff;
+            margin-left: auto;
+        }
+
+        .char-slot-name {
+            font-family: var(--font-hero);
+            font-size: 19px;
+            margin-top: 8px;
+            letter-spacing: 1px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .char-slot-role {
+            font-size: 11px;
+            color: #aaa;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .select-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 6px;
+        }
+
+        .btn-lutar {
+            font-family: var(--font-hero);
+            font-size: 28px;
+            letter-spacing: 2px;
+            padding: 12px 55px;
+            background: var(--red-neon);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 0 25px rgba(255, 0, 60, 0.6);
+            transition: all 0.25s ease;
+        }
+
+        .btn-lutar:hover {
+            background: var(--blue-neon);
+            color: black;
+            transform: scale(1.06);
+            box-shadow: 0 0 25px rgba(173, 216, 230, 0.8);
+        }
+
+        .btn-sec {
+            font-family: var(--font-hero);
+            font-size: 18px;
+            letter-spacing: 1.5px;
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-sec:hover {
+            background: white;
+            color: black;
+        }
+
+        /* ================= TELA DE LUTA (ARENA STREET FIGHTER) ================= */
+        #battle-screen {
+            display: none;
+            width: 100%;
+            max-width: 1024px;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .arena-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border: 3px solid rgba(255, 255, 255, 0.25);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.9);
+        }
+
+        #game-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* HUD Superior estilo Street Fighter / Marvel vs Capcom */
+        .hud-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 14px 20px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: start;
+            gap: 14px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .hud-side {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hud-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .hud-side.p2 .hud-top-row {
+            flex-direction: row-reverse;
+        }
+
+        .hud-char-name {
+            font-family: var(--font-hero);
+            font-size: 24px;
+            letter-spacing: 1.5px;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .round-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .round-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.65);
+            border: 2px solid #fff;
+        }
+
+        .round-dot.won {
+            background: var(--gold-neon);
+            box-shadow: 0 0 10px var(--gold-neon);
+            border-color: #fff;
+        }
+
+        /* Barra de Vida com Dano Residual Amarelo */
+        .hp-bar-outer {
+            width: 100%;
+            height: 24px;
+            background: rgba(0, 0, 0, 0.78);
+            border: 2px solid #fff;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            transform: skewX(-12deg);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+        }
+
+        .hud-side.p2 .hp-bar-outer {
+            transform: skewX(12deg);
+        }
+
+        .hp-bar-damage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: #ffae00;
+            transition: width 0.45s ease-out;
+        }
+
+        .hud-side.p2 .hp-bar-damage {
+            left: auto;
+            right: 0;
+        }
+
+        .hp-bar-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, #00e676, #b2ff59);
+            transition: width 0.08s linear;
+        }
+
+        .hud-side.p2 .hp-bar-fill {
+            left: auto;
+            right: 0;
+            background: linear-gradient(270deg, #00e676, #b2ff59);
+        }
+
+        .hp-bar-fill.low {
+            background: linear-gradient(90deg, #ff003c, #ff6e40) !important;
+        }
+
+        /* Barra de Especial / Energia */
+        .energy-bar-outer {
+            width: 82%;
+            height: 11px;
+            background: rgba(0, 0, 0, 0.75);
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 3px;
+            position: relative;
+            overflow: hidden;
+            transform: skewX(-12deg);
+        }
+
+        .hud-side.p2 .energy-bar-outer {
+            margin-left: auto;
+            transform: skewX(12deg);
+        }
+
+        .energy-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #00b0ff, var(--blue-neon));
+            transition: width 0.1s linear;
+        }
+
+        .energy-bar-fill.ready {
+            background: linear-gradient(90deg, #ff003c, var(--gold-neon));
+            box-shadow: 0 0 12px var(--gold-neon);
+            animation: pulseBar 0.6s infinite alternate;
+        }
+
+        @keyframes pulseBar {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.35); }
+        }
+
+        /* Relógio Central */
+        .hud-timer-box {
+            background: rgba(0, 0, 0, 0.82);
+            border: 2px solid var(--gold-neon);
+            border-radius: 8px;
+            padding: 4px 14px;
+            text-align: center;
+            min-width: 74px;
+            box-shadow: 0 0 18px rgba(0,0,0,0.8);
+        }
+
+        .hud-timer {
+            font-family: var(--font-hero);
+            font-size: 38px;
+            color: var(--gold-neon);
+            line-height: 1;
+            letter-spacing: 2px;
+        }
+
+        .hud-round-label {
+            font-size: 11px;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Anúncios de Round / KO no centro da tela */
+        .center-announcer {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .announcer-text {
+            font-family: var(--font-hero);
+            font-size: 86px;
+            color: var(--gold-neon);
+            text-shadow: 4px 4px 0px var(--red-neon), 0 0 30px rgba(0,0,0,0.95);
+            letter-spacing: 4px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .announcer-text.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Modal de Fim de Luta */
+        .post-match-modal {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.82);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            z-index: 30;
+        }
+
+        .post-match-modal.active {
+            display: flex;
+        }
+
+        .winner-title {
+            font-family: var(--font-hero);
+            font-size: 64px;
+            color: white;
+            text-shadow: 3px 3px 0 var(--red-neon);
+            margin: 0;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+
+        .winner-sub {
+            font-size: 20px;
+            color: var(--blue-neon);
+            margin: 0 0 12px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        /* Barra de Controles e Botões Touch */
+        .controls-bar {
+            width: 100%;
+            background: var(--panel-bg);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 8px;
+            padding: 10px 16px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .key-group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .kbd {
+            background: #222838;
+            border: 1px solid var(--blue-neon);
+            color: #fff;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .kbd.red {
+            border-color: var(--red-neon);
+        }
+
+        /* Controles Touch para Celular/Tablet */
+        .touch-controls {
+            display: none;
+            width: 100%;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .touch-pad {
+            display: flex;
+            gap: 6px;
+        }
+
+        .touch-btn {
+            background: rgba(255,255,255,0.14);
+            border: 2px solid var(--blue-neon);
+            color: white;
+            font-family: var(--font-hero);
+            font-size: 16px;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .touch-btn.atk {
+            border-color: var(--red-neon);
+            background: rgba(255, 0, 60, 0.25);
+        }
+
+        @media (max-width: 900px) {
+            .roster-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .vs-preview-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .fighter-preview-card, .fighter-preview-card.p2 {
+                flex-direction: column;
+                text-align: center;
+            }
+            .stats-bars, .fighter-preview-card.p2 .stats-bars {
+                margin: 0 auto;
+            }
+            .touch-controls {
+                display: flex;
+            }
+        }
+    

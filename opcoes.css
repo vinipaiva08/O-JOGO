@@ -1,0 +1,194 @@
+@font-face {
+    font-family: 'Avengeance';
+    src: url('avengeance/AVENGEANCE\ HEROIC\ AVENGER.ttf') format('truetype'); 
+}
+
+body {
+    background-image: url('https://wallpapercave.com/wp/wp12599361.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* Estrutura Geral */
+.gta-wrapper {
+    background: rgba(0, 0, 0, 0.7); /* Máscara escura de fundo igual ao GTA */
+    min-height: 100vh;
+    padding: 40px 10%;
+    box-sizing: border-box;
+}
+
+/* Cabeçalho */
+.gta-header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.logo-jogo {
+    font-family: 'Avengeance', sans-serif;
+    font-size: 55px;
+    margin: 0;
+    color: white;
+}
+
+.sub-painel {
+    font-size: 16px;
+    color: #ff003c;
+    text-transform: uppercase;
+    margin: 5px 0 0 0;
+    letter-spacing: 2px;
+}
+
+/* Layout das duas colunas */
+.gta-container {
+    display: flex;
+    gap: 40px;
+}
+
+/* Menu de Abas Lateral */
+.gta-tabs {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    gap: 5px;
+}
+
+.tab-btn {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: #bbb;
+    padding: 15px 20px;
+    font-size: 16px;
+    text-align: left;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover, .tab-btn.active {
+    background-color: white;
+    color: black;
+    transform: padding-left 5px;
+}
+
+.tab-btn.voltar {
+    margin-top: 40px;
+    background-color: rgba(255, 0, 60, 0.2);
+    color: #ff003c;
+}
+
+.tab-btn.voltar:hover {
+    background-color: #ff003c;
+    color: white;
+}
+
+/* Painel de Conteúdo */
+.gta-content {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 25px;
+    border-radius: 4px;
+    border-left: 4px solid #ff003c;
+}
+
+.gta-content h3 {
+    margin-top: 0;
+    text-transform: uppercase;
+    color: #ff003c;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+/* Controladores Ocultar/Exibir */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Linhas de Opções (Tabelas do GTA) */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: rgba(255, 255, 255, 0.03);
+    margin-bottom: 5px;
+    border-radius: 2px;
+}
+
+.row:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.label {
+    font-size: 15px;
+    color: #e0e0e0;
+}
+
+.value {
+    font-weight: bold;
+    color: lightblue;
+}
+
+/* Inputs, Selects e Sliders estilo GTA */
+.gta-input {
+    background-color: #222;
+    border: 1px solid #444;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+
+.gta-input:focus {
+    border-color: #ff003c;
+}
+
+.gta-slider {
+    -webkit-appearance: none;
+    width: 150px;
+    background: #444;
+    height: 6px;
+    border-radius: 3px;
+    outline: none;
+}
+
+.gta-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #ff003c;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Efeito de Carregamento Gráfico Falso */
+#efeito-carregamento {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease;
+}
+
+#efeito-carregamento.visible {
+    opacity: 1;
+    pointer-events: auto;
+}

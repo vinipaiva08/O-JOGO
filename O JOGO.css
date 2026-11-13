@@ -1,0 +1,64 @@
+/* 1. SEMPRE NO TOPO DO ARQUIVO CSS */
+@font-face {
+    font-family: 'Avengeance';
+    src: url('avengeance/AVENGEANCE\ HEROIC\ AVENGER.ttf') format('truetype'); 
+}
+
+/* 2. ESTILO DO CORPO DA PÁGINA */
+body {
+    background-image: url('https://i.pinimg.com/originals/32/a5/6b/32a56b49ea31183b73393b85db37c81e.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    margin: 0;
+
+    /* Configuração para posicionar o menu na esquerda e no centro vertical */
+    display: flex;
+    align-items: center;       /* Centraliza o menu de cima a baixo */
+    justify-content: flex-start; /* Alinha o menu no início da tela (esquerda) */
+    min-height: 100vh;
+}
+
+/* --- NOVA CAIXA DO MENU --- */
+.game-menu {
+    display: flex;
+    flex-direction: column;    /* Coloca o título e as opções uma embaixo da outra */
+    align-items: flex-start;   /* Alinha os botões pela esquerda, combinando com o título */
+    gap: 15px;                 /* Distância/espaço entre cada botão do menu */
+    margin-left: 8%;           /* Afasta o menu da borda esquerda para ficar elegante */
+}
+
+/* 3. APLICAÇÃO DA FONTE NOS TÍTULOS */
+h1 {
+    font-family: 'Avengeance', sans-serif;
+    letter-spacing: 2px;
+    font-size: 130px;          /* Ajustado levemente de 150px para 130px para acomodar o menu melhor */
+    margin: 0 0 20px 0;        /* Margem inferior para afastar o título das opções */
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.9); /* Sombra para o título se destacar do fundo */
+}
+
+/* SEU BOTÃO COM AS OPÇÕES DO MENU */
+button {
+    align-items: center;
+    color: black;
+    background-color: lightblue;
+    padding: 12px 35px;        /* Aumentado a largura para os botões do menu ficarem mais imponentes */
+    font-size: 18px;
+    font-family: 'Avengeance', sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Adicionado transição de tamanho rápida */
+    box-shadow: 0px 4px 15px rgba(255, 0, 60, 0.4);
+    width: 220px;              /* Tamanho fixo para que todos os botões tenham exatamente a mesma largura */
+    text-align: left;          /* Texto do menu alinhado à esquerda, estilo clássico de jogos */
+}
+
+/* Efeito interativo quando passar o mouse pelas opções do jogo */
+button:hover {
+    background-color: #ff003c; /* Muda para o vermelho do Homem de Ferro ao passar o mouse */
+    color: white;
+    transform: scale(1.05);    /* Dá um leve zoom na opção selecionada */
+}

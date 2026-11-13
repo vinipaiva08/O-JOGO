@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - O Jogo</title>
+    <link rel="stylesheet" href="opcoes.css">
+</head>
+<body>
+
+    <!-- Filtro escuro para simular tela carregando na mudança gráfica -->
+    <div id="efeito-carregamento" class="oculto"></div>
+
+    <div class="gta-wrapper">
+        <!-- Cabeçalho estilo GTA 5 -->
+        <header class="gta-header">
+            <h1 class="logo-jogo">O Jogo</h1>
+            <h2 class="sub-painel">Opcoes</h2>
+        </header>
+
+        <div class="gta-container">
+            <!-- Menu Lateral Esquerdo (Abas do GTA) -->
+            <nav class="gta-tabs">
+                <button class="tab-btn active" onclick="mudarAba('graficos')">Gráficos</button>
+                <button class="tab-btn" onclick="mudarAba('controles')">Controles</button>
+                <button class="tab-btn" onclick="mudarAba('sensibilidade')">Sensibilidade</button>
+                <button class="tab-btn" onclick="mudarAba('acessibilidade')">Acessibilidade</button>
+                <button class="tab-btn voltar" onclick="window.location.href='O JOGO.html'">Voltar</button>
+            </nav>
+
+            <!-- Painel de Configurações Direito -->
+            <main class="gta-content">
+                
+                <!-- ABA GRÁFICOS (ILUSÓRIA) -->
+                <div id="graficos" class="tab-content active">
+                    <h3>Configurações de Vídeo</h3>
+                    <div class="row">
+                        <span class="label">Qualidade das Texturas</span>
+                        <select class="gta-input" onchange="simularMudancaGrafica()">
+                            <option>Normal</option>
+                            <option>Alta</option>
+                            <option selected>Muito Alta</option>
+                            <option>Ultra</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <span class="label">Resolução das Sombras</span>
+                        <select class="gta-input" onchange="simularMudancaGrafica()">
+                            <option>Desativado</option>
+                            <option>Nitido</option>
+                            <option selected>Suave (NVIDIA PCSS)</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <span class="label">Qualidade da Água</span>
+                        <select class="gta-input" onchange="simularMudancaGrafica()">
+                            <option>Baixa</option>
+                            <option selected>Alta</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <span class="label">DirectX Versão</span>
+                        <select class="gta-input">
+                            <option>DirectX 10</option>
+                            <option selected>DirectX 11</option>
+                            <option>DirectX 12</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- ABA CONTROLES -->
+                <div id="controles" class="tab-content">
+                    <h3>Configuração de Teclas</h3>
+                    <div class="row"><span class="label">Andar para Frente</span><span class="value">W</span></div>
+                    <div class="row"><span class="label">Andar para Trás</span><span class="value">S</span></div>
+                    <div class="row"><span class="label">Ir para Esquerda</span><span class="value">A</span></div>
+                    <div class="row"><span class="label">Ir para Direita</span><span class="value">D</span></div>
+                    <div class="row"><span class="label">Atirar / Interagir</span><span class="value">Mouse 1</span></div>
+                    <div class="row"><span class="label">Mirar</span><span class="value">Mouse 2</span></div>
+                    <div class="row">
+                        <span class="label">Tipo de Controle</span>
+                        <select class="gta-input">
+                            <option selected>Teclado e Mouse</option>
+                            <option>Controle Xbox</option>
+                            <option>Controle PlayStation</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- ABA SENSIBILIDADE -->
+                <div id="sensibilidade" class="tab-content">
+                    <h3>Ajuste de Resposta</h3>
+                    <div class="row">
+                        <span class="label">Sensibilidade do Mouse (Olhar)</span>
+                        <input type="range" min="1" max="100" value="45" class="gta-slider">
+                    </div>
+                    <div class="row">
+                        <span class="label">Sensibilidade da Mira</span>
+                        <input type="range" min="1" max="100" value="30" class="gta-slider">
+                    </div>
+                    <div class="row">
+                        <span class="label">Suavização do Mouse</span>
+                        <select class="gta-input">
+                            <option>Desativado</option>
+                            <option selected>Ligado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- ABA ACESSIBILIDADE -->
+                <div id="acessibilidade" class="tab-content">
+                    <h3>Opções de Auxílio</h3>
+                    <div class="row">
+                        <span class="label">Modo Daltonismo</span>
+                        <select class="gta-input">
+                            <option selected>Desativado</option>
+                            <option>Protanopia</option>
+                            <option>Deuteranopia</option>
+                            <option>Tritanopia</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <span class="label">Legendas do Diálogo</span>
+                        <select class="gta-input">
+                            <option>Desativado</option>
+                            <option selected>Ativado</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <span class="label">Tamanho do Texto das Legendas</span>
+                        <select class="gta-input">
+                            <option>Pequeno</option>
+                            <option selected>Médio</option>
+                            <option>Grande</option>
+                        </select>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Script para navegação e efeito de gráficos falso -->
+    <script>
+        function mudarAba(idAba) {
+            // Desativa todas as abas e botões
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            // Ativa o botão e a aba clicada
+            document.getElementById(idAba).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function simularMudancaGrafica() {
+            const loading = document.getElementById('efeito-carregamento');
+            loading.classList.add('visible'); // Escurece a tela instantaneamente
+            
+            setTimeout(() => {
+                loading.classList.remove('visible'); // Restaura a tela após 1 segundo
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
